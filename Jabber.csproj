@@ -6,4 +6,15 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove=".gitattributes" />
+    <None Remove=".gitignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="agsXMPP">
+      <HintPath>..\..\..\..\..\temp\agsXMPP.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
