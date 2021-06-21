@@ -7,14 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove=".gitattributes" />
-    <None Remove=".gitignore" />
+    <Compile Remove="SendMessageJabber\**" />
+    <EmbeddedResource Remove="SendMessageJabber\**" />
+    <None Remove="SendMessageJabber\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="agsXMPP">
-      <HintPath>..\..\..\..\..\temp\agsXMPP.dll</HintPath>
-    </Reference>
+    <None Remove=".gitattributes" />
+    <None Remove=".gitignore" />
   </ItemGroup>
 
 </Project>
