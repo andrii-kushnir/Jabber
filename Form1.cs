@@ -8,22 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using SendMessageJabber;
 
 namespace Jabber
 {
     public partial class Form1 : Form
     {
-        private static bool _wait;
+        private static readonly bool _wait;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-
-
+            SendMessageJabber.Send.SendMessage("1443", "Test All 222xcvxcvxcv2");
 
             //string JID_Sender = "1443@jabber.ars.ua";
             //string Password = "123456";

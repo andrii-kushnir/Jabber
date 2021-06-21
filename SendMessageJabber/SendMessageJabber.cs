@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Artalk.Xmpp.Client;
+﻿using Artalk.Xmpp.Client;
 using Artalk.Xmpp.Im;
 
 namespace SendMessageJabber
@@ -10,7 +6,7 @@ namespace SendMessageJabber
     public class Send
     {
         private const string _server = "jabber.ars.ua";
-        private const string _port = "5222";
+        private const int _port = 5222;
 
         private const string _botName = "openfire";
         private const string _botPassword = "V01POpnFr444";
@@ -18,24 +14,25 @@ namespace SendMessageJabber
 
         public static int SendMessage(string contact, string message)
         {
-            var client = new ArtalkXmppClient(_server, _botName, _botPassword);
-            //client = new ArtalkXmppClient("jabber.ars.ua", "openfire", "V01POpnFr444");
-
-            //client.Message += OnNewMessage;
-            //client.Connect();
-
-
-            using (var cl = new ArtalkXmppClient("jabber.ars.ua", "1443", "123456"))
+            try
             {
-                cl.Connect();
-
+                if (contact.Length < 14 || contact.Substring(contact.Length - 13) != _server)
+                {
+                    contact += "@" + _server;
+                }
+                var msg = new Message(contact, message, null, null, MessageType.Chat, null);
+                using (var client = new ArtalkXmppClient(_server, _botName, _botPassword, _port, true))
+                {
+                    client.Connect();
+                    client.SendMessage(msg);
+                }
+            }
+            catch
+            {
+                return -1;
             }
 
-            client.SendMessage(contact, message, null, null, MessageType.Chat, null);
-
             return 1;
-
         }
-
     }
 }

@@ -17,4 +17,8 @@
     <None Remove=".gitignore" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="SendMessageJabber\SendMessageJabber.csproj" />
+  </ItemGroup>
+
 </Project>
